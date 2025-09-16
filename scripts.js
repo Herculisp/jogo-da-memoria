@@ -50,10 +50,10 @@ function resetBoard(){
 
 
 (function shuffle() {
-    cards.forEach((card) => {
-        let ramdomPosition = Math.floor(Math.random() * 30);
-        card.style.order = ramdomPosition;
-    })
+     cards.forEach((card) => {
+         let ramdomPosition = Math.floor(Math.random() * 30);
+         card.style.order = ramdomPosition;
+     })
 }) ();
 
 cards.forEach((card) => {
@@ -69,3 +69,18 @@ const btn = document.querySelector('#reset')
 btn.addEventListener('click', () => {
     location.reload()
 })
+
+function createLabelName() {
+    const cardImages = document.querySelectorAll('.card-front');
+
+    cardImages.forEach(img => {
+      const src = img.getAttribute('src');                      // e.g., "image/charizard-keyboard.png"
+      const filename = src.split('/').pop();                    // "charizard-keyboard.png"
+      const nameWithoutExtension = filename.split('.')[0];      // "charizard-keyboard"
+      const computerPart = nameWithoutExtension.split('-')[0];  // "charizard"
+
+      console.log(computerPart); // Output: "charizard", "pikachu", etc.
+    });
+}
+
+(createLabelName())
